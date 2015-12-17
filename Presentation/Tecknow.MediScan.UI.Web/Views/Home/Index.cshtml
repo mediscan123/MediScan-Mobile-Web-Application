@@ -1,0 +1,360 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="Dashboard">
+    <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
+    <title>MediScan</title>
+    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+       <style>
+
+        .tablecompress {
+            margin-left: auto;
+            margin-right: auto;
+            width: 80%;
+        }
+
+        .tablecompress1 {
+            margin-left: auto;
+            margin-right: auto;
+            width: 95%;
+        }
+        .group:after { visibility: hidden; display: block; font-size: 0; content: " "; clear: both; height: 0; }
+
+        .se-pre-con {
+            background: url(~/Images/Preloader_8.gif) center no-repeat #fff;
+            height: 100%;
+            left: 0px;
+            position: fixed;
+            top: 0px;
+            width: 100%;
+            z-index: 9999;
+        }
+
+        .downunderline {
+            border-bottom: solid;
+            border-width: 1px;
+            padding-bottom: 4px;
+            padding-top: 4px;
+        }
+
+        .imagediv {
+            height: 40px;
+            width: 40px;
+        }
+
+        .padup {
+            padding-top: 7px;
+            width: 100%;
+        }
+    </style>
+
+
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/CSS/FontAwsome.css" rel="stylesheet" />
+    
+    <link href="~/CSS/DataTable.css" rel="stylesheet" />
+    <link href="~/CSS/jquery-ui.css" rel="stylesheet" />
+    <link href="~/CSS/toastr.css" rel="stylesheet" />
+    <link href="~/CSS/cornerstone.min.css" rel="stylesheet" />
+</head>
+
+
+<body>
+
+    <div class="se-pre-con"></div>
+
+    <div id="wait" style="display: none; left: 50%; position: absolute; top: 50%;">
+        <img alt="" src="~/Images/Preloader_10.gif" />
+    </div>
+
+
+    <nav class="navbar navbar-default navbar-static-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse"
+                        data-target="#example-navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="#">
+                    <img alt="Brand" src="~/Images/MediScan_logo.png">
+                </a>
+            </div>
+            <div class="collapse navbar-collapse" id="example-navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a data-bind="attr : {href : favoriteurl }">Favorite</a>
+                    </li>
+                    <li>
+                        <a href="#">Recent</a>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Logout <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="#">View Profile</a>
+                            </li>
+                            <li>
+                                <a href="#">Logout</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+   
+
+    <div class="main">
+        <!-- Tabs bar -->
+        <ul id="tabs" class="nav nav-tabs">
+            <li class="active"><a href="#study" data-toggle="tab">Study List</a>         
+            </li>
+        </ul>
+
+        <!-- Tab content -->
+        
+            <!-- Study list -->
+            <div id="studyList" class="tab-pane active">
+
+
+
+                <div id="tabs" style="padding-bottom:5%"></div>
+                <div id="study" class="tab active">
+
+                    <div class="tablecompress">
+
+                        <div class="col-sm-2">
+                            <div class="form-group">
+                                <select data-bind="options: queryparams , value : selectedvalue , optionsCaption : 'select..' " class="form-control"></select>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Search By PatientName, PatientId, Modality" data-bind="value:queryKey">
+                            </div>
+                        </div>
+
+
+                        <div class="col-sm-2">
+                            <div class="form-group">
+                                <input class="form-control" placeholder="From Date optional" data-bind="value : fromdate" id="datepicker2" type="text" />
+                            </div>
+                        </div>
+
+                        <div class="col-sm-2">
+                            <div class="form-group">
+                                <input class="form-control" placeholder="To Date optional" data-bind="value : todate" id="datepicker1" type="text" />
+                            </div>
+                        </div>
+
+                        <center>
+                            <div class="col-sm-2">
+                                <input class="btn btn-info" type="button" id="search" data-bind="click : search" value="Search" />
+                            </div>
+                        </center>
+                    </div>
+
+
+                    <br />
+                    <br />
+
+                    <div class="container studytable ">
+                        <table id="Study" class="table-responsive table table-bordered table-striped" data-bind="with : PersonData">
+                            <thead>
+                                <tr>
+                                    <td>Patient Name</td>
+                                    <td>Patient ID</td>
+                                    <td>Modality</td>
+                                    <td>StudyName</td>
+                                    <td>Study Date</td>
+                                    <td>Images</td>
+                                    <td>Series</td>
+                                </tr>
+                            </thead>
+                            <tbody data-bind="foreach : Person">
+                                <tr>
+                                    <td data-bind="text : PersonName "></td>
+                                    <td data-bind="text : PersonId"></td>
+                                    <td data-bind="text : Modality"></td>
+                                    <td data-bind="text : StudyName"></td>
+                                    <td data-bind="text : StudyDate"></td>
+                                    <td data-bind="text : NoOfImages"></td>
+                                    <td>
+                                        <ul class="nav">
+                                            <li class="dropdown">
+                                                <a style="padding: 0px 0px" href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                                    Series <b class="caret"></b>
+                                                </a>
+                                                <ul class="dropdown-menu" data-bind="foreach : Series">
+                                                    <li data-bind=" click : $root.InstanceSearch">
+                                                        <a>
+                                                            <span data-bind="text :SeriesName "></span>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+
+            </div>
+       
+
+        <!-- Study viewer tab content template -->
+
+
+
+        <div id="myTabContent" class="tab-content" data-bind="foreach: tabcontents">
+            <div class="tab-pane fade in active " data-bind="attr: {id : divid} ">
+                <div id="maindiv" class="tablecompress1">
+                    <br />
+                    <br />
+                    <div data-bind="foreach : $root.allinstances, attr:{id : carosalDivId } " style="height: 512px; overflow: scroll;" class="col-xs-2">
+                        <div data-bind="attr : {id : instanceid, td: corosalseriesuid , tr : ImageId  }, click : $root.ViewImage"></div>
+                    </div>
+                    <div data-bind="attr :{ id : mainDicomImageId}" oncontextmenu=" return false"
+                         class='cornerstone-enabled-image'
+                         unselectable='on'
+                         onselectstart='return false;'
+                         onmousedown='return false;'>
+
+                        <div data-bind="attr :{ id : dicomImageId}" class="col-xs-10" style="height: 512px; overflow: hidden; position: relative">
+
+                            <center>
+                                <div class="btn-group btn-group-justified">
+                                    <button type="button" class="btn btn-sm btn-default" data-bind="click : $root.wwcc" data-toggle="tooltip"
+                                            data-placement="bottom" title="WW/WC">
+                                        <span class="glyphicon glyphicon-cog"></span>
+                                    </button>
+                                    <button type="button" class="btn btn-sm btn-default" data-bind="click : $root.invert" data-toggle="tooltip"
+                                            data-placement="bottom" title="Invert">
+                                        <span class="glyphicon glyphicon-adjust"></span>
+                                    </button>
+                                    <button type="button" class="btn btn-sm  btn-default" data-bind="click : $root.zoom" data-toggle="tooltip"
+                                            data-placement="bottom" title="Zoom">
+                                        <span class="glyphicon glyphicon-search"></span>
+                                    </button>
+                                    <button type="button" class="btn btn-sm  btn-default" data-bind="click : $root.pan" data-toggle="tooltip"
+                                            data-placement="bottom" title="Pan">
+                                        <span class="glyphicon glyphicon-move"></span>
+                                    </button>
+                                    <button type="button" class="btn btn-sm  btn-default" data-bind="click : $root.length" data-toggle="tooltip"
+                                            data-placement="bottom" title="Length Measurement">
+                                        <span class="glyphicon glyphicon-sort"></span>
+                                    </button>
+                                    <button type="button" class="btn btn-sm  btn-default" data-bind="click : $root.angle" data-toggle="tooltip"
+                                            data-placement="bottom" title="Angle Measurement">
+                                        <span class="glyphicon glyphicon-arrow-left"></span>
+                                    </button>
+                                    <button type="button" class="btn btn-sm  btn-default" data-bind="click : $root.pixelprobe" data-toggle="tooltip"
+                                            data-placement="bottom" title="Pixel Probe">
+                                        <span class="glyphicon glyphicon-ok-circle"></span>
+                                    </button>
+                                    <button type="button" class="btn btn-sm  btn-default" data-bind="click : $root.ellipticalroi" data-toggle="tooltip"
+                                            data-placement="bottom" title="Elliptical ROI">
+                                        <span class="glyphicon glyphicon-screenshot"></span>
+                                    </button>
+                                    <button type="button" class="btn btn-sm  btn-default" data-bind="click : $root.recroi" data-toggle="tooltip"
+                                            data-placement="bottom" title="Rectangle ROI">
+                                        <span class="glyphicon glyphicon-unchecked "></span>
+                                    </button>
+                                    <button type="button" class="btn btn-sm  btn-default" data-bind="click : $root.play" data-toggle="tooltip"
+                                            data-placement="bottom" title="Play">
+                                        <span class="glyphicon glyphicon-play"></span>
+                                    </button>
+                                    <button type="button" class="btn btn-sm  btn-default" data-bind="click : $root.stop" data-toggle="tooltip"
+                                            data-placement="bottom" title="Stop">
+                                        <span class="glyphicon glyphicon-stop"></span>
+                                    </button>
+
+                                </div>
+                            </center>
+                            <div id="topleft" style="color: white; left: 0px; position: absolute; top: 0px;">
+                                <span data-bind="text :PatientName">Patient Name</span>
+                            </div>
+                            <div id="topright" style="color: white; position: absolute; right: 0px; top: 0px;">
+                                <span data-bind="text :SeriesName"></span>
+                            </div>
+                            <div id="bottomright" style="bottom: 0px; color: white; position: absolute; right: 0px">
+                                <span data-bind="text : StudyName"></span>
+                            </div>
+                            <div id="bottomleft" style="bottom: 0px; color: white; left: 0px; position: absolute;">
+                                <span data-bind="text : Modality"></span>
+                            </div>
+                        </div>
+
+                    </div>
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <div class="tablecompress">
+                        <br />
+                        <br />
+                        <div class="row ">
+                            <div class="col-sm-4">
+                                <span id="noofcomments" data-bind="text : noofcomments"> </span>
+                            </div>
+                        </div>
+                        <div class="row padup">
+                            <div class="col-sm-11 col-xs-8">
+                                <input type="text" class="form-control" data-bind="value : annotations" placeholder="Enter the Comments ......">
+                            </div>
+                            <div class="col-sm-1 col-xs-1">
+                                <button class="btn btn-info" data-bind="click : $root.PostComment">Post</button>
+                            </div>
+                        </div>
+                        <br />
+                        <br />
+                        <div id="latestdiv"></div>
+                        <div data-bind="foreach : $root.commentsDiv, attr : { id : commentindivID  } ">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+            <script src="~/Scripts/jquery-2.1.4.js"></script>
+            <script src="~/Scripts/BootStrap.js"></script>
+            <script src="~/Scripts/jquery-ui-1.9.2.custom.min.js"></script>
+
+            <script src="~/Scripts/knockout-3.3.0.js"></script>
+            <script src="~/Scripts/Sammy.js"></script>
+            <script src="~/Scripts/toastr.js"></script>
+
+            <script src="~/Scripts/CornerStone/cornerstone.js"></script>
+            <script src="~/Scripts/CornerStone/cornerstoneWADOImageLoader.js"></script>
+            <script src="~/Scripts/CornerStone/dicomParser.js"></script>
+            <script src="~/Scripts/CornerStone/jpx.min.js"></script>
+            <script src="~/Scripts/CornerStone/cornerstoneMath.min.js"></script>
+            <script src="~/Scripts/CornerStone/cornerstoneTools.min.js"></script>
+
+            <script src="~/Scripts/Application.js"></script>
+
+            <script src="~/Scripts/Accessories.js"></script>
+
+</body>
+
+
+</html>

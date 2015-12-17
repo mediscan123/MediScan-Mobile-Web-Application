@@ -1,0 +1,93 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Business", "Business", "{35C4B3EB-B1E3-4944-9A13-EE1CDBCDB8F4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{52E1B90B-1AC0-4C79-A2A2-E7BB8A85657D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{51983795-49B1-4B27-B661-4785BC177956}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{08BE4B63-E2ED-4202-83BC-344A3ED89F17}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tecknow.MediScan.Entities", "Shared\Tecknow.MediScan.Entities\Tecknow.MediScan.Entities.csproj", "{F77F5147-04DB-4529-8D75-D57EE892D8B6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{4314357F-331C-4994-A113-0DB527C9F170}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tecknow.MediScan.Data", "Data\Tecknow.MediScan.Data\Tecknow.MediScan.Data.csproj", "{B1EE583C-E6CB-4A23-94C8-98580A5BA74B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tecknow.MediScan.Business", "Business\Tecknow.MediScan.Business\Tecknow.MediScan.Business.csproj", "{03172105-693E-41A2-9EAD-181104A10BAA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tecknow.MediScan.Test", "Tests\Tecknow.MediScan.Test\Tecknow.MediScan.Test.csproj", "{85BCCFEC-459A-48FB-BF71-262BC78FD575}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tecknow.MediScan.UI.Web", "Presentation\Tecknow.MediScan.UI.Web\Tecknow.MediScan.UI.Web.csproj", "{5EFFB0AA-3632-4293-ACE7-A1B2C0F9772D}"
+	ProjectSection(ProjectDependencies) = postProject
+		{03172105-693E-41A2-9EAD-181104A10BAA} = {03172105-693E-41A2-9EAD-181104A10BAA}
+		{B1EE583C-E6CB-4A23-94C8-98580A5BA74B} = {B1EE583C-E6CB-4A23-94C8-98580A5BA74B}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 6
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://teckdotknow.visualstudio.com/defaultcollection
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = Business\\Tecknow.MediScan.Business\\Tecknow.MediScan.Business.csproj
+		SccProjectTopLevelParentUniqueName1 = MediScan\u0020Web\u0020Application.sln
+		SccProjectName1 = Business/Tecknow.MediScan.Business
+		SccLocalPath1 = Business\\Tecknow.MediScan.Business
+		SccProjectUniqueName2 = Data\\Tecknow.MediScan.Data\\Tecknow.MediScan.Data.csproj
+		SccProjectTopLevelParentUniqueName2 = MediScan\u0020Web\u0020Application.sln
+		SccProjectName2 = Data/Tecknow.MediScan.Data
+		SccLocalPath2 = Data\\Tecknow.MediScan.Data
+		SccProjectUniqueName3 = Presentation\\Tecknow.MediScan.UI.Web\\Tecknow.MediScan.UI.Web.csproj
+		SccProjectTopLevelParentUniqueName3 = MediScan\u0020Web\u0020Application.sln
+		SccProjectName3 = Presentation/Tecknow.MediScan.UI.Web
+		SccLocalPath3 = Presentation\\Tecknow.MediScan.UI.Web
+		SccProjectUniqueName4 = Shared\\Tecknow.MediScan.Entities\\Tecknow.MediScan.Entities.csproj
+		SccProjectTopLevelParentUniqueName4 = MediScan\u0020Web\u0020Application.sln
+		SccProjectName4 = Shared/Tecknow.MediScan.Entities
+		SccLocalPath4 = Shared\\Tecknow.MediScan.Entities
+		SccProjectUniqueName5 = Tests\\Tecknow.MediScan.Test\\Tecknow.MediScan.Test.csproj
+		SccProjectTopLevelParentUniqueName5 = MediScan\u0020Web\u0020Application.sln
+		SccProjectName5 = Tests/Tecknow.MediScan.Test
+		SccLocalPath5 = Tests\\Tecknow.MediScan.Test
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F77F5147-04DB-4529-8D75-D57EE892D8B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F77F5147-04DB-4529-8D75-D57EE892D8B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F77F5147-04DB-4529-8D75-D57EE892D8B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F77F5147-04DB-4529-8D75-D57EE892D8B6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B1EE583C-E6CB-4A23-94C8-98580A5BA74B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B1EE583C-E6CB-4A23-94C8-98580A5BA74B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B1EE583C-E6CB-4A23-94C8-98580A5BA74B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B1EE583C-E6CB-4A23-94C8-98580A5BA74B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{03172105-693E-41A2-9EAD-181104A10BAA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{03172105-693E-41A2-9EAD-181104A10BAA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{03172105-693E-41A2-9EAD-181104A10BAA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{03172105-693E-41A2-9EAD-181104A10BAA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{85BCCFEC-459A-48FB-BF71-262BC78FD575}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{85BCCFEC-459A-48FB-BF71-262BC78FD575}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{85BCCFEC-459A-48FB-BF71-262BC78FD575}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{85BCCFEC-459A-48FB-BF71-262BC78FD575}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5EFFB0AA-3632-4293-ACE7-A1B2C0F9772D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5EFFB0AA-3632-4293-ACE7-A1B2C0F9772D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5EFFB0AA-3632-4293-ACE7-A1B2C0F9772D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5EFFB0AA-3632-4293-ACE7-A1B2C0F9772D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{F77F5147-04DB-4529-8D75-D57EE892D8B6} = {51983795-49B1-4B27-B661-4785BC177956}
+		{B1EE583C-E6CB-4A23-94C8-98580A5BA74B} = {4314357F-331C-4994-A113-0DB527C9F170}
+		{03172105-693E-41A2-9EAD-181104A10BAA} = {35C4B3EB-B1E3-4944-9A13-EE1CDBCDB8F4}
+		{85BCCFEC-459A-48FB-BF71-262BC78FD575} = {08BE4B63-E2ED-4202-83BC-344A3ED89F17}
+		{5EFFB0AA-3632-4293-ACE7-A1B2C0F9772D} = {52E1B90B-1AC0-4C79-A2A2-E7BB8A85657D}
+	EndGlobalSection
+EndGlobal
